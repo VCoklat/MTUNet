@@ -19,6 +19,19 @@ the proposed method can achieve both good accuracy and satisfactory explainabili
 
 ## Usage
 
+##### Env
+```
+sudo apt-get install python3.6
+sudo apt-get install python3.6-venv python3.6-distutils
+curl https://bootstrap.pypa.io/pip/3.6/get-pip.py -o get-pip.py
+sudo python3.6 get-pip.py
+python3.6 -m venv test
+source test/bin/activate
+python3.6 -m pip install --upgrade pip
+pip install -r requirements
+sudo apt-get install libgl1-mesa-glx
+```
+
 ##### Data Set
 Download miniImageNet from [miniImageNet](https://drive.google.com/open?id=0B3Irx3uQNoBMQ1FlNXJsZUdYWEE)
 
