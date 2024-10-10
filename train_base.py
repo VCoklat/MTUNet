@@ -23,6 +23,7 @@ def main(args):
     sample_info_val = [args.val_episodes, args.n_way, args.n_shot, args.query]
     loaders_val = get_dataloader(args, "val", sample=sample_info_val)
     criterien = torch.nn.CrossEntropyLoss()
+    #device = torch.device("cpu")  # Force the use of CPU
     model = base_bone.__dict__[args.base_model](num_classes=args.num_classes, drop_dim=True, extract=True)
     model.to(device)
     print_param(model)
