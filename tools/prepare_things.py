@@ -74,6 +74,41 @@ def save_on_master(*args, **kwargs):
 
 
 class SmoothedValue(object):
+    SmoothedValue is a class that tracks a series of values and provides access to smoothed values over a window or the global series average.
+
+    Attributes:
+        deque (collections.deque): A deque to store the values with a maximum length of window_size.
+        total (float): The total sum of all values added.
+        count (int): The total number of values added.
+        fmt (str): The format string used for the string representation of the object.
+
+    Methods:
+        __init__(window_size=20, fmt=None):
+            Initializes the SmoothedValue object with a specified window size and format string.
+        
+        update(value, n=1):
+            Updates the deque with a new value and increments the total and count.
+        
+        synchronize_between_processes():
+            Synchronizes the total and count values across multiple processes. Note: This does not synchronize the deque.
+        
+        median:
+            Returns the median of the values in the deque.
+        
+        avg:
+            Returns the average of the values in the deque.
+        
+        global_avg:
+            Returns the global average of all values added.
+        
+        max:
+            Returns the maximum value in the deque.
+        
+        value:
+            Returns the most recent value added to the deque.
+        
+        __str__():
+            Returns a formatted string representation of the object using the specified format string.
     """Track a series of values and provide access to smoothed values over a
     window or the global series average.
     """

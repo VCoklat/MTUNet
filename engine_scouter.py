@@ -14,6 +14,22 @@ def evaluate(args, model, data_loader, device, record, epoch):
 
 
 def calculation(args, model, mode, data_loader, device, record, epoch, optimizer=None):
+    """
+    Perform training or evaluation for a given model.
+
+    Args:
+        args (Namespace): Arguments for the calculation.
+        model (torch.nn.Module): The model to be trained or evaluated.
+        mode (str): Mode of operation, either 'train' or 'eval'.
+        data_loader (torch.utils.data.DataLoader): DataLoader for the dataset.
+        device (torch.device): Device to perform computation on (CPU or GPU).
+        record (dict): Dictionary to record loss and accuracy metrics.
+        epoch (int): Current epoch number.
+        optimizer (torch.optim.Optimizer, optional): Optimizer for training. Defaults to None.
+
+    Returns:
+        None
+    """
     if mode == "train":
         model.train()
     else:

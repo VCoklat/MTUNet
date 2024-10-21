@@ -6,6 +6,36 @@ version_higher = ( torch.__version__ >= "1.5.0" )
 
 
 class AdaBelief(Optimizer):
+    AdaBelief Optimizer
+
+    Implements the AdaBelief optimization algorithm, which is a modification of the Adam optimizer in PyTorch.
+
+    Attributes:
+        params (iterable): Iterable of parameters to optimize or dicts defining parameter groups.
+        lr (float, optional): Learning rate (default: 1e-3).
+        betas (Tuple[float, float], optional): Coefficients used for computing running averages of gradient and its square (default: (0.9, 0.999)).
+        eps (float, optional): Term added to the denominator to improve numerical stability (default: 1e-8).
+        weight_decay (float, optional): Weight decay (L2 penalty) (default: 0).
+        amsgrad (boolean, optional): Whether to use the AMSGrad variant of this algorithm from the paper `On the Convergence of Adam and Beyond` (default: False).
+        weight_decouple (boolean, optional): If set as True, the optimizer uses decoupled weight decay as in AdamW (default: False).
+        fixed_decay (boolean, optional): Used when weight_decouple is set as True. When fixed_decay is True, the weight decay is performed as W_new = W_old - W_old * decay. When fixed_decay is False, the weight decay is performed as W_new = W_old - W_old * decay * lr. Note that in this case, the weight decay ratio decreases with learning rate (lr) (default: False).
+        rectify (boolean, optional): If set as True, performs the rectified update similar to RAdam (default: False).
+
+    Methods:
+        __init__(params, lr=1e-3, betas=(0.9, 0.999), eps=1e-8, weight_decay=0, amsgrad=False, weight_decouple=False, fixed_decay=False, rectify=False):
+            Initializes the AdaBelief optimizer with the given parameters.
+
+        __setstate__(state):
+            Sets the state of the optimizer.
+
+        reset():
+            Resets the state of the optimizer.
+
+        step(closure=None):
+            Performs a single optimization step.
+
+    References:
+        AdaBelief Optimizer, adapting stepsizes by the belief in observed gradients, NeurIPS 2020 Spotlight.
     r"""Implements AdaBelief algorithm. Modified from Adam in PyTorch
 
     Arguments:

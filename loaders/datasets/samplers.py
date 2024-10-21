@@ -7,6 +7,29 @@ __all__ = ['CategoriesSampler']
 
 
 class CategoriesSampler(Sampler):
+    """
+    A PyTorch Sampler for episodic training in few-shot learning tasks.
+
+    Args:
+        label (list or numpy.ndarray): Array of labels corresponding to the dataset.
+        n_iter (int): Number of iterations (episodes) per epoch.
+        n_way (int): Number of classes per episode.
+        n_shot (int): Number of samples per class in the support set.
+        n_query (int): Number of samples per class in the query set.
+        seed (int, optional): Random seed for reproducibility. Default is None.
+
+    Attributes:
+        n_iter (int): Number of iterations (episodes) per epoch.
+        n_way (int): Number of classes per episode.
+        n_shot (int): Number of samples per class in the support set.
+        n_query (int): Number of samples per class in the query set.
+        seed (int, optional): Random seed for reproducibility.
+        m_ind (list): List of tensors, each containing indices of samples for a specific class.
+
+    Methods:
+        __len__(): Returns the number of iterations (episodes) per epoch.
+        __iter__(): Yields batches of indices for each episode.
+    """
 
     def __init__(self, label, n_iter, n_way, n_shot, n_query, seed=None):
 

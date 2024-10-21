@@ -51,7 +51,35 @@ def train_one_epoch(model, data_loader, device, record, epoch, optimizer, criter
 
 
 @torch.no_grad()
+"""
+Evaluates the model on the validation dataset.
+
+Args:
+    args (Namespace): The arguments containing evaluation parameters.
+    model (torch.nn.Module): The model to be evaluated.
+    data_loader (DataLoader): The DataLoader for the validation dataset.
+    device (torch.device): The device to run the evaluation on.
+    record (dict): A dictionary to record evaluation metrics.
+    epoch (int): The current epoch number.
+
+Returns:
+    None: The function updates the `record` dictionary with evaluation metrics.
+"""
 def evaluate(args, model, data_loader, device, record, epoch):
+    """
+    Evaluate the performance of the model on the validation dataset.
+
+    Args:
+        args (Namespace): Arguments containing evaluation parameters such as n_way, n_shot, and query.
+        model (torch.nn.Module): The model to be evaluated.
+        data_loader (torch.utils.data.DataLoader): DataLoader for the validation dataset.
+        device (torch.device): Device on which to perform the evaluation (e.g., 'cuda' or 'cpu').
+        record (dict): Dictionary to record evaluation metrics.
+        epoch (int): Current epoch number.
+
+    Returns:
+        None: The function updates the `record` dictionary with evaluation metrics.
+    """
     model.eval()
     print("start val: " + str(epoch))
     running_corrects_1 = 0.0

@@ -13,6 +13,26 @@ args = parser.parse_args()
 
 
 def save_imgs(prex1, prex2, tag):
+    """
+    Save images from pickle files to PNG format.
+
+    This function reads image data and corresponding labels from pickle files,
+    decodes the images, and saves them as PNG files with filenames that include
+    general and specific labels.
+
+    Args:
+        prex1 (str): Prefix for the input pickle files.
+        prex2 (str): Prefix for the output PNG files.
+        tag (str): Tag to identify the specific dataset.
+
+    Raises:
+        FileNotFoundError: If the specified pickle files are not found.
+        pickle.UnpicklingError: If there is an error unpickling the data.
+        cv2.error: If there is an error decoding or writing the images.
+
+    Example:
+        save_imgs('/path/to/data/', '/path/to/save/', 'train')
+    """
     data_file = prex1 + tag + '_images_png.pkl'
     label_file = prex1 + tag + '_labels.pkl'
     with open(data_file, 'rb') as f:

@@ -29,6 +29,24 @@ def compute_confidence_interval(data):
 
 
 class MetricLog():
+
+
+    """
+    A class to log and print training and validation metrics.
+
+    Attributes:
+    -----------
+    args : Any
+        Arguments passed to the MetricLog instance.
+    record : dict
+        A dictionary to store training and validation metrics, including loss, accuracy,
+        cross-entropy loss (log_loss), and attention loss (att_loss).
+
+    Methods:
+    --------
+    print_metric():
+        Prints the training and validation metrics and returns the record dictionary.
+    """
     def __init__(self, args):
         self.args = args
         self.record = {"train": {"loss": [], "acc": [], "log_loss": [], "att_loss": []},

@@ -23,6 +23,65 @@ def load_base(args):
 
 
 class FSLSimilarity(nn.Module):
+    """
+    FSLSimilarity is a neural network module designed for few-shot learning similarity tasks.
+
+    Args:
+        args (Namespace): A namespace object containing various configuration parameters.
+
+    Attributes:
+        args (Namespace): Configuration parameters.
+        backbone (nn.Module): The backbone network for feature extraction.
+        channel (int): Number of input channels.
+        slots_per_class (int): Number of slots per class.
+        conv1x1 (nn.Conv2d): 1x1 convolution layer.
+        slot (ScouterAttention): Attention mechanism for slot-based learning.
+        position_emb (nn.Module): Position encoding module.
+        lambda_value (float): Lambda value for loss calculation.
+        avg_pool (nn.AdaptiveAvgPool2d): Adaptive average pooling layer.
+        classifier (nn.Sequential): Fully connected classifier network.
+        use_threshold (bool): Flag to use thresholding.
+        u_vis (bool): Flag to use visualization.
+
+    Methods:
+        forward(x):
+            Forward pass of the network.
+            Args:
+                x (torch.Tensor): Input tensor.
+            Returns:
+                out_fc (torch.Tensor): Output tensor after classification.
+                attn_loss (torch.Tensor): Attention loss.
+
+        threshold(data):
+            Apply thresholding to the data.
+            Args:
+                data (torch.Tensor): Input tensor.
+            Returns:
+                data (torch.Tensor): Thresholded tensor.
+
+        feature_deal(x):
+            Process input features.
+            Args:
+                x (torch.Tensor): Input tensor.
+            Returns:
+                x_pe (torch.Tensor): Position encoded features.
+                x (torch.Tensor): Processed features.
+                x_raw (torch.Tensor): Raw features from the backbone.
+
+        vis(att_vises, name, use_vis):
+            Visualize attention maps.
+            Args:
+                att_vises (torch.Tensor): Attention maps.
+                name (str): Name for saving the visualization.
+                use_vis (bool): Flag to use visualization.
+
+        affine(data):
+            Apply affine transformation to the data.
+            Args:
+                data (torch.Tensor): Input tensor.
+            Returns:
+                im (torch.Tensor): Affine transformed tensor.
+    """
     def __init__(self, args):
         super(FSLSimilarity, self).__init__()
         self.args = args

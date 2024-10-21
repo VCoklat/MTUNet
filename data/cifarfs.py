@@ -1,4 +1,34 @@
 import argparse
+"""
+This script processes CIFAR-FS dataset by splitting it into training, validation, and test sets,
+and then copying the respective data into corresponding directories.
+
+Functions:
+    get_name(root, mode_folder=True):
+        Retrieves the names of directories or files in the given root directory.
+        
+    make_csv(data, name):
+        Creates a CSV file with the given data and name.
+        
+    move(cls, phase):
+        Copies the class data to the specified phase directory.
+        
+    read_csv(name):
+        Reads a CSV file and returns a list of non-empty lines.
+        
+    get_split(cls, phase):
+        Processes the class data and moves it to the specified phase directory.
+
+Arguments:
+    --data: str
+        Path to the data directory. Default is "/home/wbw/PAN/cifar100".
+        
+    --split: str
+        Path to the split folder. Default is "/home/wbw/PAN/".
+
+Usage:
+    Run the script with the appropriate arguments to process the CIFAR-FS dataset.
+"""
 import os
 import csv
 import shutil

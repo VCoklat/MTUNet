@@ -34,6 +34,17 @@ def get_name(root, mode_folder=True):
 
 
 def move_data(split, phase, save_folder_root):
+    """
+    Moves data from the source directory to the destination directory and generates a CSV file.
+
+    Args:
+        split (list): List of class names to be processed.
+        phase (str): The phase of the data (e.g., 'train', 'test', 'val').
+        save_folder_root (str): The root directory where the data will be saved.
+
+    Returns:
+        None
+    """
     image_name = []
     for cls in split:
         shutil.copytree(os.path.join(image_root, cls), os.path.join(save_folder_root, cls))

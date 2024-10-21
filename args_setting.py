@@ -2,6 +2,65 @@ import argparse
 
 
 def get_args_parser():
+    """
+    Creates an argument parser for the FSL Project.
+
+    Returns:
+        argparse.ArgumentParser: The argument parser with predefined arguments.
+
+    Arguments:
+        --dataset (str): Name of the dataset. Default is "miniImageNet".
+        --data_root (str): Root directory of the dataset. Default is "/media/wbw/a7f02863-b441-49d0-b546-6ef6fefbbc7e/FSL_data/".
+
+        --base_model (str): Base model architecture. Default is 'resnet18'.
+        --channel (int): Number of channels. Default is 512.
+        --num_classes (int): Number of classes. Default is 64.
+
+        --n_way (int): Number of ways for FSL. Default is 5.
+        --n_shot (int): Number of shots for FSL. Default is 1.
+        --query (int): Number of query samples. Default is 15.
+
+        --train_episodes (int): Number of training episodes. Default is 500.
+        --val_episodes (int): Number of validation episodes. Default is 2000.
+        --test_episodes (int): Number of test episodes. Default is 2000.
+
+        --fsl (bool): Whether to use FSL model. Default is True.
+        --lr (float): Learning rate. Default is 0.001.
+        --lr_drop (int): Learning rate drop interval. Default is 10.
+        --batch_size (int): Batch size. Default is 256.
+        --weight_decay (float): Weight decay. Default is 0.0001.
+        --epochs (int): Number of epochs. Default is 20.
+        --img_size (int): Image size. Default is 80.
+        --aug (bool): Whether to use augmentation. Default is True.
+        --use_slot (bool): Whether to use slot module. Default is True.
+        --fix_parameter (bool): Whether to fix parameters for backbone. Default is True.
+        --double (bool): Whether to use double mode. Default is False.
+
+        --num_slot (int): Number of slots. Default is 7.
+        --interval (int): Interval for category sampling. Default is 10.
+        --drop_dim (bool): Whether to drop dimension for average. Default is False.
+        --slot_base_train (bool): Whether to use slot base training. Default is True.
+        --use_pre (bool): Whether to use pre-trained parameters for backbone. Default is True.
+        --loss_status (int): Status of loss (positive or negative). Default is 1.
+        --hidden_dim (int): Dimension of to_k. Default is 64.
+        --slots_per_class (int): Number of slots per class. Default is 1.
+        --power (float): Power of the slot loss. Default is 2.
+        --to_k_layer (int): Number of layers in to_k. Default is 3.
+        --lambda_value (str): Lambda value of slot loss. Default is "1.".
+        --vis (bool): Whether to save slot visualization. Default is False.
+        --vis_id (int): ID of the image to visualize. Default is 0.
+        --DT (bool): Whether to use DT training. Default is True.
+        --random (bool): Whether to randomly select category. Default is False.
+
+        --device (str): Device to use for training/testing. Default is 'cuda'.
+        --output_dir (str): Directory to save outputs. Default is 'saved_model'.
+        --start_epoch (int): Starting epoch. Default is 0.
+        --num_workers (int): Number of workers. Default is 0.
+
+        --world_size (int): Number of distributed processes. Default is 1.
+        --local_rank (int): Local rank for distributed training.
+        --dist_url (str): URL for setting up distributed training. Default is 'env://'.
+    """
     parser = argparse.ArgumentParser('FSL Project', add_help=False)
 
     # dataset setting

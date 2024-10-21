@@ -1,4 +1,35 @@
 import numpy as np
+"""
+This script visualizes the relationship between validation and test accuracies for different datasets using scatter plots.
+
+Modules:
+    - numpy: For numerical operations.
+    - matplotlib.pyplot: For plotting graphs.
+    - sklearn.linear_model: For linear regression modeling.
+    - pandas: For data manipulation and analysis.
+    - tools.calculate_tool: For computing confidence intervals.
+
+Datasets:
+    - mini-ImageNet (commented out)
+    - tiered-ImageNet (commented out)
+    - cifar100 (currently used)
+
+Functions:
+    - compute_confidence_interval: Computes the confidence interval for the given data.
+
+Workflow:
+    1. Load the test and validation accuracy data for the cifar100 dataset.
+    2. Convert the data to numpy arrays.
+    3. Print the shapes of the test and validation data arrays.
+    4. Configure plot settings (font, axis limits, ticks, etc.).
+    5. Create a scatter plot of validation vs. test accuracies.
+    6. Highlight a specific data point on the plot.
+    7. Label the axes and add a grid.
+    8. Save the plot as a PDF file.
+    9. Display the plot.
+    10. Compute and print the confidence interval for the test data.
+    11. Compute and print the Pearson correlation coefficient between the test and validation data.
+"""
 import matplotlib.pyplot as plt
 from sklearn import linear_model
 import pandas as pd

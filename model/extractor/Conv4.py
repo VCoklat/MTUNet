@@ -11,6 +11,32 @@ def conv_block(in_channels: int, out_channels: int) -> nn.Module:
 
 
 class Conv4(nn.Module):
+    """
+    A convolutional neural network module with four convolutional layers followed by a linear layer.
+
+    Args:
+        num_classes (int): The number of output classes for the linear layer.
+        drop_dim (bool, optional): If True, flattens the output of the last convolutional layer before passing it to the linear layer. Default is True.
+        extract (bool, optional): If True, returns both the output of the linear layer and the flattened output of the last convolutional layer. Default is False.
+
+    Attributes:
+        drop_dim (bool): Whether to flatten the output of the last convolutional layer.
+        extract (bool): Whether to return both the output of the linear layer and the flattened output of the last convolutional layer.
+        conv1 (nn.Module): The first convolutional block.
+        conv2 (nn.Module): The second convolutional block.
+        conv3 (nn.Module): The third convolutional block.
+        conv4 (nn.Module): The fourth convolutional block.
+        linear (nn.Module): The linear layer.
+
+    Methods:
+        forward(x):
+            Defines the forward pass of the network.
+            Args:
+                x (torch.Tensor): The input tensor.
+            Returns:
+                torch.Tensor: The output tensor from the linear layer.
+                If `extract` is True, also returns the flattened output of the last convolutional layer.
+    """
     def __init__(self, num_classes, drop_dim=True, extract=False):
         super(Conv4, self).__init__()
         self.drop_dim = drop_dim
