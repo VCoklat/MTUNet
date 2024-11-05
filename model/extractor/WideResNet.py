@@ -47,40 +47,6 @@ class wide_basic(nn.Module):
 
 
 class Wide_ResNet(nn.Module):
-    """
-    Wide_ResNet: A Wide Residual Network implementation.
-
-    Args:
-        depth (int): Depth of the network. Should be of the form 6n+4.
-        widen_factor (int): Width factor for the network.
-        dropout_rate (float): Dropout rate for the dropout layers.
-        num_classes (int): Number of output classes.
-        drop_dim (bool): If True, the output tensor is flattened.
-        extract (bool): If True, the network returns both the output and the feature map.
-
-    Attributes:
-        in_planes (int): Number of input channels for the first convolutional layer.
-        drop_dim (bool): If True, the output tensor is flattened.
-        extract (bool): If True, the network returns both the output and the feature map.
-        conv1 (nn.Conv2d): Initial convolutional layer.
-        layer1 (nn.Sequential): First wide layer.
-        layer2 (nn.Sequential): Second wide layer.
-        layer3 (nn.Sequential): Third wide layer.
-        bn1 (nn.BatchNorm2d): Batch normalization layer.
-        avg_pool (nn.AdaptiveAvgPool2d): Adaptive average pooling layer.
-        linear (nn.Linear): Fully connected layer.
-
-    Methods:
-        _wide_layer(block, planes, num_blocks, dropout_rate, stride):
-            Creates a wide layer with the specified parameters.
-
-        forward(x):
-            Defines the forward pass of the network.
-            Args:
-                x (torch.Tensor): Input tensor.
-            Returns:
-                torch.Tensor: Output tensor. If extract is True, returns a tuple of output tensor and feature map.
-    """
     def __init__(self, depth=20, widen_factor=10, dropout_rate=0, num_classes=1000, drop_dim=True, extract=False):
         super(Wide_ResNet, self).__init__()
         self.in_planes = 16

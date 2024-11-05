@@ -5,54 +5,6 @@ import numpy as np
 
 
 class ImageAugment(object):
-    ImageAugment is a class for augmenting training data using the imgaug library.
-
-    Attributes:
-        key (int): A key used for random decisions in augmentation.
-        choice (int): A choice parameter for selecting augmentation functions.
-        rotate (int): Random rotation angle between -15 and 15 degrees.
-        scale_x (float): Random scaling factor for the x-axis between 0.8 and 1.0.
-        scale_y (float): Random scaling factor for the y-axis between 0.8 and 1.0.
-        translate_x (float): Random translation percentage for the x-axis between -0.1 and 0.1.
-        translate_y (float): Random translation percentage for the y-axis between -0.1 and 0.1.
-        brightness (int): Random brightness adjustment between -10 and 10.
-        linear_contrast (float): Random linear contrast adjustment between 0.5 and 2.0.
-        alpha (float): Random alpha value for sharpening between 0 and 1.0.
-        lightness (float): Random lightness value for sharpening between 0.75 and 1.5.
-        Gaussian (float): Random Gaussian noise value between 0.0 and 12.75.
-        Gaussian_blur (float): Random Gaussian blur sigma between 0 and 3.0.
-
-    Methods:
-        aug(image, sequence):
-            Augments a given image using a specified sequence of augmentation functions.
-            
-            Parameters:
-                image (numpy.ndarray): The image to be augmented, with size (H, W, C).
-                sequence (iaa.Sequential): A collection of augmentation functions.
-            
-            Returns:
-                numpy.ndarray: The augmented image.
-
-        rd(hehe):
-            Generates a random integer between 0 and a specified upper limit.
-            
-            Parameters:
-                hehe (int): The upper limit for the random integer.
-            
-            Returns:
-                int: A random integer between 0 and hehe.
-
-        aug_sequence():
-            Creates a sequence of augmentation functions.
-            
-            Returns:
-                iaa.Sequential: A sequence of augmentation functions in random order.
-
-        aug_function():
-            Defines a list of augmentation functions based on random decisions.
-            
-            Returns:
-                list: A list of augmentation functions.
     """
     class for augment the training data using imgaug
     """

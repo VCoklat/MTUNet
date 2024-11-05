@@ -8,38 +8,6 @@ __all__ = ['DatasetFolder']
 
 
 class DatasetFolder(object):
-    """
-    DatasetFolder is a custom dataset loader for various image datasets.
-
-    Attributes:
-        data (list): List of image file paths.
-        labels (list): List of corresponding labels for the images.
-        split_type (str): Type of dataset split ('train', 'test', 'val').
-        set_name (str): Name of the dataset.
-        root (str): Root directory of the dataset.
-        transform (callable): A function/transform that takes in an image and returns a transformed version.
-        out_name (bool): If True, returns the image path along with the image and label.
-        length (int): Number of samples in the dataset.
-
-    Methods:
-        __init__(root, set_name, split_type, transform, out_name=False, cls_selction=None, mode=None):
-            Initializes the DatasetFolder object with dataset parameters and loads the data.
-
-        select_class(data, cls, selection):
-            Filters the dataset based on the selected classes.
-
-        make_dict(all_data):
-            Converts a list of image data into a dictionary with class labels as keys.
-
-        read_csv(name):
-            Reads a CSV file and returns a dictionary of image data.
-
-        __len__():
-            Returns the number of samples in the dataset.
-
-        __getitem__(index):
-            Retrieves the image and label (and optionally the image path) at the specified index.
-    """
 
     def __init__(self, root, set_name, split_type, transform, out_name=False, cls_selction=None, mode=None):
         assert split_type in ['train', 'test', 'val']

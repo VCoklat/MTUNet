@@ -1,41 +1,4 @@
 import matplotlib.pyplot as plt
-"""
-This script generates a 3x2 grid of subplots using matplotlib to visualize performance metrics for different datasets and models.
-
-Subplots:
-- mini-ImageNet 1-shot
-- mini-ImageNet 5-shot
-- tiered-ImageNet 1-shot
-- tiered-ImageNet 5-shot
-- CIFAR-FS 1-shot
-- CIFAR-FS 5-shot
-
-Each subplot contains performance metrics for ResNet-18 and WRN models.
-
-Data:
-- x_mini: List of x-axis labels for mini-ImageNet datasets.
-- x_tiered: List of x-axis labels for tiered-ImageNet datasets.
-- y_mini_res_1: Performance metrics for ResNet-18 on mini-ImageNet 1-shot.
-- y_mini_res_5: Performance metrics for ResNet-18 on mini-ImageNet 5-shot.
-- y_mini_wrn_1: Performance metrics for WRN on mini-ImageNet 1-shot.
-- y_mini_wrn_5: Performance metrics for WRN on mini-ImageNet 5-shot.
-- y_tiered_res_1: Performance metrics for ResNet-18 on tiered-ImageNet 1-shot.
-- y_tiered_res_5: Performance metrics for ResNet-18 on tiered-ImageNet 5-shot.
-- y_tiered_wrn_1: Performance metrics for WRN on tiered-ImageNet 1-shot.
-- y_tiered_wrn_5: Performance metrics for WRN on tiered-ImageNet 5-shot.
-- y_cifar_res_1: Performance metrics for ResNet-18 on CIFAR-FS 1-shot.
-- y_cifar_res_5: Performance metrics for ResNet-18 on CIFAR-FS 5-shot.
-- y_cifar_wrn_1: Performance metrics for WRN on CIFAR-FS 1-shot.
-- y_cifar_wrn_5: Performance metrics for WRN on CIFAR-FS 5-shot.
-
-Plotting:
-- Each subplot is configured with specific x-axis labels, y-axis limits, and y-axis ticks.
-- Line plots are created for each model's performance metrics with different markers and colors.
-- Legends are added to each subplot to differentiate between ResNet-18 and WRN models.
-
-Output:
-- The final figure is saved as "ablation.pdf" and displayed.
-"""
 import numpy as np
 
 

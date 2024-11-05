@@ -7,33 +7,6 @@ from model.model_tools import fix_parameter, load_backbone
 
 
 class SlotModel(nn.Module):
-    """
-    SlotModel is a neural network module that optionally incorporates slot attention mechanism.
-
-    Args:
-        args (Namespace): A namespace object containing various configuration parameters.
-
-    Attributes:
-        use_slot (bool): Flag to determine whether to use slot attention.
-        backbone (nn.Module): The backbone neural network.
-        channel (int): Number of input channels.
-        slots_per_class (int): Number of slots per class.
-        conv1x1 (nn.Conv2d): 1x1 convolution layer to adjust the channel dimension.
-        slot (ScouterAttention): Slot attention mechanism.
-        position_emb (nn.Module): Position encoding module.
-        lambda_value (float): Weight for the attention loss.
-
-    Methods:
-        forward(x, target=None):
-            Forward pass of the model.
-            
-            Args:
-                x (Tensor): Input tensor.
-                target (Tensor, optional): Target tensor for computing loss. Defaults to None.
-            
-            Returns:
-                Tensor or list: If target is None, returns the output tensor. If target is provided, returns a list containing the output tensor and a list of losses.
-    """
     def __init__(self, args):
         super(SlotModel, self).__init__()
         self.use_slot = args.use_slot

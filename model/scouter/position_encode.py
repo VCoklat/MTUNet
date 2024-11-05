@@ -8,25 +8,6 @@ from torch import nn
 
 
 class PositionEmbeddingSine(nn.Module):
-
-        Args:
-            num_pos_feats (int, optional): Number of positional features. Default is 64.
-            temperature (int, optional): Temperature parameter for scaling. Default is 10000.
-            normalize (bool, optional): Whether to normalize the positional encodings. Default is False.
-            scale (float, optional): Scale factor for normalization. If provided, `normalize` must be True. Default is None.
-
-        Raises:
-            ValueError: If `scale` is provided and `normalize` is False.
-
-        Methods:
-            forward(tensor_list):
-                Computes the positional encodings for the input tensor.
-
-                Args:
-                    tensor_list (Tensor): Input tensor of shape (batch_size, channels, height, width).
-
-                Returns:
-                    Tensor: Positional encodings of the same spatial dimensions as the input tensor.
     """
     This is a more standard version of the position embedding, very similar to the one
     used by the Attention is all you need paper, generalized to work on images.

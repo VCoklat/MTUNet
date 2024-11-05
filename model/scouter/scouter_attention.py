@@ -5,49 +5,6 @@ import numpy as np
 
 
 class ScouterAttention(nn.Module):
-    """
-    ScouterAttention is a neural network module that implements a custom attention mechanism.
-
-    Args:
-        args (Namespace): A namespace object containing various configuration parameters.
-        slots_per_class (int): Number of slots per class.
-        dim (int): Dimensionality of the input features.
-        iters (int, optional): Number of iterations for the attention mechanism. Default is 3.
-        eps (float, optional): A small epsilon value to avoid division by zero. Default is 1e-8.
-        vis (bool, optional): Flag to enable visualization. Default is False.
-        vis_id (int, optional): ID for visualization. Default is 0.
-        loss_status (int, optional): Status for loss computation. Default is 1.
-        power (int, optional): Power to which the slot loss is raised. Default is 1.
-        to_k_layer (int, optional): Number of layers in the to_k network. Default is 1.
-
-    Attributes:
-        args (Namespace): Configuration parameters.
-        slots_per_class (int): Number of slots per class.
-        num_slots (int): Total number of slots.
-        iters (int): Number of iterations for the attention mechanism.
-        eps (float): Epsilon value to avoid division by zero.
-        scale (float): Scaling factor for the attention scores.
-        loss_status (int): Status for loss computation.
-        initial_slots (Parameter): Initial slots parameter.
-        to_k (Sequential): Sequential network for computing keys.
-        gru (GRU): GRU network for updating slots.
-        vis (bool): Flag to enable visualization.
-        vis_id (int): ID for visualization.
-        power (int): Power to which the slot loss is raised.
-
-    Methods:
-        forward(inputs, inputs_x):
-            Forward pass of the ScouterAttention module.
-
-            Args:
-                inputs (Tensor): Input tensor of shape (batch_size, num_inputs, dim).
-                inputs_x (Tensor): Additional input tensor of shape (batch_size, num_inputs, dim).
-
-            Returns:
-                Tuple[Tensor, Tensor, Tensor]: Depending on the configuration, returns either:
-                    - updates, slot_loss, attn
-                    - loss_status * sum(updates), slot_loss
-    """
     def __init__(self, args, slots_per_class, dim, iters=3, eps=1e-8, vis=False, vis_id=0, loss_status=1, power=1, to_k_layer=1):
         super().__init__()
         self.args = args

@@ -18,34 +18,6 @@ os.makedirs('saved_model/', exist_ok=True)
 
 
 def main(args):
-    """
-    Main function to train and evaluate the model.
-
-    Args:
-        args (Namespace): Arguments containing configuration for training and evaluation.
-
-    The function performs the following steps:
-    1. Sets the device for computation (CPU/GPU).
-    2. Loads the training and validation data loaders.
-    3. Initializes the loss criterion (CrossEntropyLoss).
-    4. Initializes the model and moves it to the specified device.
-    5. Prints the model parameters.
-    6. Sets up the optimizer (AdamW) and learning rate scheduler (StepLR).
-    7. Logs the start time and initializes the metric logger.
-    8. Iterates over the epochs to train and evaluate the model.
-    9. Saves the model checkpoint if the validation accuracy improves.
-    10. Prints the total training time.
-
-    Note:
-        The function assumes the existence of several helper functions and classes:
-        - get_dataloader: Function to get the data loader.
-        - base_bone: Module containing the model definitions.
-        - print_param: Function to print model parameters.
-        - MetricLogFew: Class for logging metrics.
-        - train_one_epoch: Function to train the model for one epoch.
-        - evaluate: Function to evaluate the model.
-        - prt.save_on_master: Function to save the model checkpoint.
-    """
     device = torch.device(args.device)
     loaders_train = get_dataloader(args, "train")
     sample_info_val = [args.val_episodes, args.n_way, args.n_shot, args.query]
@@ -98,8 +70,8 @@ if __name__ == '__main__':
     args = parser.parse_args()
     args.fsl = True
     args.lr_drop = 20
-    args.epochs = 50
-    args.batch_size = 256
+    args.epochs = 1
+    args.batch_size = 16
     args.use_slot = False
     model_name = (f"{args.dataset}_" + f"{args.base_model}_" + f"{'use_slot_' if args.use_slot else 'no_slot_'}" + 'checkpoint.pth')
     print("model name: ", model_name)

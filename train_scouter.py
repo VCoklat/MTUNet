@@ -15,33 +15,6 @@ import numpy as np
 
 
 def main(args, selection=None):
-
-
-
-    """
-    Main function to train and evaluate the SlotModel.
-
-    Args:
-        args (Namespace): Arguments containing configuration for training and evaluation.
-        selection (optional): Selection criteria for data loading.
-
-    The function performs the following steps:
-    1. Sets up the device for computation (CPU/GPU).
-    2. Loads training and validation data.
-    3. Initializes the SlotModel and moves it to the specified device.
-    4. Prints the model parameters and their count.
-    5. Creates the output directory if it does not exist.
-    6. Sets up the optimizer and learning rate scheduler.
-    7. Starts the training loop for the specified number of epochs.
-    8. Trains the model for one epoch and evaluates it on the validation set.
-    9. Updates the learning rate scheduler.
-    10. Saves the model checkpoint if the validation accuracy improves.
-    11. Logs and prints the training metrics.
-    12. Prints the total training time.
-
-    Returns:
-        None
-    """
     device = torch.device(args.device)
     loaders_train = get_dataloader(args, "train", selection=selection, mode="train")
     loaders_val = get_dataloader(args, "train", selection=selection, mode="val")

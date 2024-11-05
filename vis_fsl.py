@@ -15,29 +15,6 @@ os.makedirs('vis/all', exist_ok=True)
 
 
 def test(args, model, image, record_name):
-    """
-    Perform a test on the given model with the provided image and record names.
-
-    Args:
-        args (Namespace): A namespace object containing various arguments such as img_size, num_slot, n_shot, and n_way.
-        model (torch.nn.Module): The model to be tested.
-        image (torch.Tensor): The input image tensor.
-        record_name (list): A list of record names corresponding to the images.
-
-    Returns:
-        None
-
-    This function performs the following steps:
-    1. Moves the input image to the specified device and converts it to float32.
-    2. Passes the image through the model to get the output and attention.
-    3. Calculates the loss and accuracy using the criterion function.
-    4. For each image in the batch:
-        - Loads and processes the raw image.
-        - Saves the raw image.
-        - Applies a colormap to the slot images and saves the resulting heatmaps.
-        - Determines if the image is a support or query image based on its index.
-        - Applies a colormap to the sum slot images and saves the resulting heatmaps.
-    """
     image = image.to(device, dtype=torch.float32)
     b = image.size()[0]
     output, att = model(image)

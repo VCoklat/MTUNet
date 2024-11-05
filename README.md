@@ -25,8 +25,8 @@ sudo apt-get install python3.6
 sudo apt-get install python3.6-venv python3.6-distutils
 curl https://bootstrap.pypa.io/pip/3.6/get-pip.py -o get-pip.py
 sudo python3.6 get-pip.py
-python3.6 -m venv test
-source test/bin/activate
+python3.6 -m venv test1
+source test1/bin/activate
 python3.6 -m pip install --upgrade pip
 pip install -r requirements
 sudo apt-get install libgl1-mesa-glx
@@ -43,7 +43,7 @@ Put all dataset under "FSL_data", for the same split setting run the following c
 
 ```
 python data/tiered_imagenet.py --data "../FSL_data/tiered-imagenet/"
-python data/cifarfs.py --data "FSL_data/cifar100/" --split "../FSL_data""
+python data/cifarfs.py --data "FSL_Data/cifar100/" --split "FSL_Data"
 
 ```
 
@@ -55,7 +55,7 @@ python train_base.py --dataset miniImageNet --base_model resnet18 --channel 512 
 python train_base.py --dataset miniImageNet --base_model wideres --channel 640 --num_classes 64 --data_root "../FSL_data"
 python train_base.py --dataset tiered-ImageNet --base_model resnet18 --channel 512 --num_classes 351 --data_root "../FSL_data"
 python train_base.py --dataset tiered-ImageNet --base_model wideres --channel 640 --num_classes 351 --data_root "../FSL_data"
-python train_base.py --dataset cifarfs --base_model resnet18 --channel 512 --num_classes 64 --data_root "FSL_data"
+python train_base.py --dataset cifarfs --base_model resnet18 --channel 512 --num_classes 64 --data_root "FSL_Data"
 python train_base.py --dataset cifarfs --base_model wideres --channel 640 --num_classes 64 --data_root "FSL_data"
 ```
 
@@ -65,7 +65,7 @@ python train_scouter.py --random False --interval 10 --dataset miniImageNet --ba
 python train_scouter.py --random False --interval 10 --dataset miniImageNet --base_model wideres --channel 640 --num_classes 64 --data_root "../FSL_data"
 python train_scouter.py --random False --interval 10 --dataset tiered-ImageNet --base_model resnet18 --channel 512 --num_classes 351 --data_root "../FSL_data"
 python train_scouter.py --random False --interval 10 --dataset tiered-ImageNet --base_model wideres --channel 640 --num_classes 351 --data_root "../FSL_data"
-python train_scouter.py --random False --interval 10 --dataset cifarfs --base_model resnet18 --channel 512 --num_classes 64 --data_root "../FSL_data"
+python train_scouter.py --random False --interval 10 --dataset cifarfs --base_model resnet18 --channel 512 --num_classes 64 --data_root "FSL_Data"
 python train_scouter.py --random False --interval 10 --dataset cifarfs --base_model wideres --channel 640 --num_classes 64 --data_root "FSL_data"
 ```
 
@@ -75,18 +75,18 @@ python train_fsl.py --random False --interval 10 --dataset miniImageNet --base_m
 python train_fsl.py --random False --interval 10 --dataset miniImageNet --base_model wideres --channel 640 --num_classes 64 --data_root "../FSL_data"
 python train_fsl.py --random False --interval 10 --dataset tiered-ImageNet --base_model resnet18 --channel 512 --num_classes 351 --data_root "../FSL_data"
 python train_fsl.py --random False --interval 10 --dataset tiered-ImageNet --base_model wideres --channel 640 --num_classes 351 --data_root "../FSL_data"
-python train_fsl.py --random False --interval 10 --dataset cifarfs --base_model resnet18 --channel 512 --num_classes 64 --data_root "../FSL_data"
+python train_fsl.py --random False --interval 10 --dataset cifarfs --base_model resnet18 --channel 512 --num_classes 64 --data_root "FSL_Data"
 python train_fsl.py --random False --interval 10 --dataset cifarfs --base_model wideres --channel 640 --num_classes 64 --data_root "FSL_data"
 ```
 
 ##### Test MTUNet
 ```
-python test_fsl.py --random False --interval 10 --dataset miniImageNet --base_model resnet18 --channel 512 --num_classes 64 --data_root "FSL_data"
+python test_fsl.py --random False --interval 10 --dataset cifarfs --base_model resnet18 --channel 512 --num_classes 64 --data_root "FSL_Data"
 ```
 
 ##### Visualization of MTUNet
 ```
-python vis_fsl.py --random False --interval 10 --dataset miniImageNet --base_model resnet18 --channel 512 --num_classes 64 --data_root "FSL_data"
+python vis_fsl.py --random False --interval 10 --dataset cifarfs  --base_model resnet18 --channel 512 --num_classes 64 --data_root "FSL_Data"
 ```
 
 #### Patterns visualization

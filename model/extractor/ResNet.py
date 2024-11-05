@@ -86,36 +86,6 @@ class Bottleneck(nn.Module):
 
 
 class ResNet(nn.Module):
-    """
-    ResNet model class.
-
-    This class implements a ResNet model for image classification. It includes methods for initializing the model, 
-    creating layers, and performing forward propagation.
-
-    Attributes:
-        drop_dim (bool): Whether to drop the dimensions of the output feature map.
-        extract (bool): Whether to return the extracted features along with the output.
-        inplanes (int): Number of input channels for the first convolutional layer.
-        conv1 (nn.Conv2d): First convolutional layer.
-        bn1 (nn.BatchNorm2d): Batch normalization layer after the first convolution.
-        relu (nn.ReLU): ReLU activation function.
-        layer1 (nn.Sequential): First block of residual layers.
-        layer2 (nn.Sequential): Second block of residual layers.
-        layer3 (nn.Sequential): Third block of residual layers.
-        layer4 (nn.Sequential): Fourth block of residual layers.
-        avg_pool (nn.AdaptiveAvgPool2d): Adaptive average pooling layer.
-        linear (nn.Linear): Fully connected layer for classification.
-
-    Methods:
-        __init__(self, block, layers, num_classes=1000, zero_init_residual=False, drop_dim=True, extract=False):
-            Initializes the ResNet model with the given parameters.
-
-        _make_layer(self, block, planes, blocks, stride=1):
-            Creates a block of residual layers.
-
-        forward(self, x):
-            Defines the forward pass of the ResNet model.
-    """
 
     def __init__(self, block, layers, num_classes=1000, zero_init_residual=False, drop_dim=True, extract=False):
         super(ResNet, self).__init__()

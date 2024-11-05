@@ -14,28 +14,6 @@ def get_metric(metric_type):
 
 
 class ProtoNet(nn.Module):
-    """
-    ProtoNet is a neural network module for prototypical networks used in few-shot learning tasks.
-
-    Attributes:
-        encoder (nn.Module): The feature extraction network.
-        train_info (list): Training configuration parameters including the number of ways, shots, queries, and the metric name.
-
-    Methods:
-        __init__(feature_net, args=None):
-            Initializes the ProtoNet with a feature extraction network and optional training arguments.
-            
-        forward(data, _=False):
-            Forward pass of the network. If in training mode, computes the logits based on the prototypical network approach.
-            If not in training mode, simply returns the encoded features.
-            
-            Args:
-                data (Tensor): Input data to the network.
-                _ (bool, optional): Unused argument, defaults to False.
-            
-            Returns:
-                Tensor: Logits if in training mode, otherwise encoded features.
-    """
 
     def __init__(self, feature_net, args=None):
         super().__init__()

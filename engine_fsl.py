@@ -5,23 +5,6 @@ import tools.calculate_tool as cal
 
 
 def train_one_epoch(model, data_loader, device, record, epoch, optimizer, criterion):
-
-
-    """
-    Trains the model for one epoch.
-
-    Args:
-        model (torch.nn.Module): The model to be trained.
-        data_loader (torch.utils.data.DataLoader): DataLoader for the training data.
-        device (torch.device): The device to run the training on (e.g., 'cpu' or 'cuda').
-        record (dict): Dictionary to record training metrics.
-        epoch (int): The current epoch number.
-        optimizer (torch.optim.Optimizer): The optimizer used for training.
-        criterion (torch.nn.Module): The loss function and accuracy computation module.
-
-    Returns:
-        None
-    """
     model.train()
     criterion.train()
     L = len(data_loader)
@@ -51,20 +34,6 @@ def train_one_epoch(model, data_loader, device, record, epoch, optimizer, criter
 
 @torch.no_grad()
 def evaluate(model, data_loader, device, record, epoch, criterion):
-    """
-    Evaluate the performance of the model on the validation dataset.
-
-    Args:
-        model (torch.nn.Module): The model to be evaluated.
-        data_loader (torch.utils.data.DataLoader): DataLoader for the validation dataset.
-        device (torch.device): The device to run the evaluation on (e.g., 'cpu' or 'cuda').
-        record (dict): Dictionary to record evaluation metrics.
-        epoch (int): The current epoch number.
-        criterion (torch.nn.Module): The loss function and accuracy computation module.
-
-    Returns:
-        None
-    """
     model.eval()
     criterion.eval()
     print("start val: " + str(epoch))

@@ -14,29 +14,6 @@ import numpy as np
 
 
 def main(args):
-    """
-    Main function to train and evaluate the FSL (Few-Shot Learning) model.
-
-    Args:
-        args (Namespace): A namespace object containing the following attributes:
-            - device (str): The device to use for training (e.g., 'cuda' or 'cpu').
-            - train_episodes (int): Number of training episodes.
-            - n_way (int): Number of classes in each episode.
-            - n_shot (int): Number of support samples per class.
-            - query (int): Number of query samples per class.
-            - val_episodes (int): Number of validation episodes.
-            - dataset (str): Name of the dataset.
-            - base_model (str): Name of the base model.
-            - num_slot (int): Number of slots to use.
-            - output_dir (str): Directory to save the output.
-            - lr (float): Learning rate.
-            - lr_drop (int): Step size for learning rate decay.
-            - start_epoch (int): Starting epoch number.
-            - epochs (int): Total number of epochs.
-
-    Returns:
-        None
-    """
     device = torch.device(args.device)
     sample_info_train = [args.train_episodes, args.n_way, args.n_shot, args.query]
     loaders_train = get_dataloader(args, "train", sample=sample_info_train)

@@ -47,22 +47,6 @@ class Trans(nn.Module):
 
 
 def load_backbone(args):
-    """
-    Loads the backbone model based on the provided arguments.
-
-    Args:
-        args (Namespace): A namespace object containing the following attributes:
-            - base_model (str): The name of the base model to load.
-            - num_classes (int): The number of classes for the model.
-            - drop_dim (int): The dimension to drop.
-            - use_slot (bool): Flag to determine if slot should be used.
-            - use_pre (bool): Flag to determine if pre-trained weights should be used.
-            - dataset (str): The name of the dataset.
-            - DT (bool): Flag to determine if DT is used.
-
-    Returns:
-        nn.Module: The loaded backbone model with or without pre-trained weights.
-    """
     bone = base_bone.__dict__[args.base_model](num_classes=args.num_classes, drop_dim=args.drop_dim)
     if args.use_slot:
         if args.use_pre:

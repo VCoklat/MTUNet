@@ -50,17 +50,6 @@ class Aug(object):
 
 
 class ToTensor(object):
-    Convert a ``PIL Image`` or ``numpy.ndarray`` to tensor.
-
-
-
-    Methods
-    -------
-    __call__(image, color=True)
-        Convert the input image to a tensor.
-        
-    __repr__()
-        Return the string representation of the class.
     """Convert a ``PIL Image`` or ``numpy.ndarray`` to tensor.
 
     Converts a PIL Image or numpy.ndarray (H x W x C) in the range

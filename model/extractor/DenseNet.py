@@ -45,31 +45,6 @@ class _Transition(nn.Sequential):
 
 
 class DenseNet(nn.Module):
-    Densenet-BC model class, based on
-    "Densely Connected Convolutional Networks" <https://arxiv.org/pdf/1608.06993.pdf>
-
-        growth_rate (int): How many filters to add each layer (`k` in paper).
-        block_config (list of 4 ints): How many layers in each pooling block.
-        num_init_features (int): The number of filters to learn in the first convolution layer.
-        bn_size (int): Multiplicative factor for number of bottleneck layers (i.e. bn_size * k features in the bottleneck layer).
-        drop_rate (float): Dropout rate after each dense layer.
-        num_classes (int): Number of classification classes.
-        drop_dim (bool): Whether to drop the dimensions after average pooling.
-        extract (bool): Whether to return the extracted features along with the output.
-
-    Attributes:
-        drop_dim (bool): Whether to drop the dimensions after average pooling.
-        extract (bool): Whether to return the extracted features along with the output.
-        features (nn.Sequential): The sequential container of the DenseNet layers.
-        avg_pool (nn.AdaptiveAvgPool2d): The adaptive average pooling layer.
-        linear (nn.Linear): The linear layer for classification.
-
-    Methods:
-        forward(x):
-            Defines the computation performed at every call.
-                x (torch.Tensor): Input tensor.
-            Returns:
-                torch.Tensor: Output tensor. If `extract` is True, returns a tuple of (output tensor, extracted features).
     r"""Densenet-BC model class, based on
     `"Densely Connected Convolutional Networks" <https://arxiv.org/pdf/1608.06993.pdf>`_
 

@@ -25,42 +25,6 @@ class Block(nn.Module):
 
 
 class MobileNet(nn.Module):
-    """
-    MobileNet model definition.
-
-    Attributes:
-        cfg (list): Configuration list defining the architecture of the MobileNet. 
-                    Each element can be an integer (number of output channels) or a tuple 
-                    (number of output channels, stride).
-
-    Methods:
-        __init__(num_classes=10, remove_linear=False):
-            Initializes the MobileNet model.
-            
-            Args:
-                num_classes (int): Number of output classes for the final linear layer. Default is 10.
-                remove_linear (bool): If True, removes the final linear layer. Default is False.
-        
-        _make_layers(in_planes):
-            Creates the layers of the MobileNet based on the configuration list.
-            
-            Args:
-                in_planes (int): Number of input channels for the first layer.
-            
-            Returns:
-                nn.Sequential: A sequential container of the layers.
-        
-        forward(x, feature=False):
-            Defines the forward pass of the MobileNet.
-            
-            Args:
-                x (torch.Tensor): Input tensor.
-                feature (bool): If True, returns both the features and the final output. Default is False.
-            
-            Returns:
-                torch.Tensor or tuple: If feature is False, returns the final output tensor. 
-                                       If feature is True, returns a tuple of (features, final output).
-    """
     # (128,2) means conv planes=128, conv stride=2, by default conv stride=1
     cfg = [64, (128, 2), 128, (256, 2), 256, (512, 2), 512, 512, 512, 512, 512, (1024, 2), 1024]
 
